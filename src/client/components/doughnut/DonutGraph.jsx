@@ -18,7 +18,7 @@ const DonutGraph = ({ gender }) => {
     borderWidth: 3,
     plugins: {
       title: {
-        text: "Total Gender count:",
+        text: "Total Gender Distribution",
         display: true,
         align: "start",
         font: {
