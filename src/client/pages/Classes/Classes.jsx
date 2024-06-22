@@ -78,14 +78,24 @@ const Classes = () => {
           </div>
         </ModalWrapper>
         <div className='p-2 mt-3 rounded-md'>
-          <table className='min-w-full table-auto border-collapse shadow-lg rounded-md'>
-            <thead className='bg-gray-500 text-white'>
+          <table className='min-w-full divide-y divide-gray-200'>
+            <thead className='bg-gray-50'>
               <tr>
-                <th className='border px-4 py-2'>Class Name</th>
-                <th className='border px-4 py-2'>Duration</th>
-                <th className='border px-4 py-2'>Capacity</th>
-                <th className='border px-4 py-2'>Students</th>
-                <th className='border px-4 py-2'>Teacher</th>
+                <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  Class Name
+                </th>
+                <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  Duration
+                </th>
+                <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  Capacity
+                </th>
+                <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  Students
+                </th>
+                <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  Teacher
+                </th>
               </tr>
             </thead>
             <tbody>

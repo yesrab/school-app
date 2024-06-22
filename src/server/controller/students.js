@@ -25,14 +25,12 @@ const addStudent = async (req, res) => {
   } = req.body;
 
   guardians.forEach((guardian) => {
-    console.log(guardian);
     if (guardian.isParent === "on") {
       guardian.isParent = true;
     } else if (guardian.isParent === "no") {
       guardian.isParent = false;
     }
   });
-  // console.log(req.body);
 
   const data = await students.create({
     fullName,
@@ -78,9 +76,86 @@ const getStudents = async (req, res) => {
     } else {
       data.enrolledClass = "none";
     }
-    console.log(data);
   }
   res.status(200).json({ studentData });
 };
 
-export { test, addAllStudents, addStudent, studentCount, getStudents };
+const getStudentDetails = async (req, res) => {
+  const id = req.params.studentId;
+  const studentDetail = await students.findById(id);
+  const classesEnrolled = await classes.findOne({ "students.studentId": id });
+  res.status(200).json({ studentDetail, classesEnrolled });
+};
+
+const changeStatus = async (req, res) => {
+  const { status, studentId } = req.body;
+  const student = await students.findById(studentId);
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
+  if (student) {
+    student.enrollmentStatus = status;
+    await student.save();
+  } else {
+    return res.status(404).json({
+      status: "Error",
+    });
+  }
+  return res.status(200).json({
+    status: "success",
+    messasge: `set status to ${status}`,
+  });
+};
+
+const changeClass = async (req, res) => {
+  const { Classid, studentId, currentClassId } = req.body;
+  const student = await students.findById(studentId);
+  const newClassDetails = await classes.findById(Classid);
+  if (currentClassId) {
+    const currentClassDetails = await classes.findById(currentClassId);
+    // Filter out the student from the current class
+    currentClassDetails.students = currentClassDetails.students.filter(
+      (s) => s.studentId.toString() !== studentId.toString()
+    );
+    await currentClassDetails.save();
+  }
+  if (newClassDetails) {
+    // Add student to the new class
+    newClassDetails.students.push({
+      studentName: student.fullName,
+      studentId: student._id,
+    });
+    // Update student member fee based on new class
+    student.totalFeePaid = newClassDetails.studentMemberFee; // Edit: Update the fee
+    await student.save();
+    await newClassDetails.save();
+    return res.status(200).json({
+      status: "Success",
+      message: `Student moved to new class ${newClassDetails.className}`,
+    });
+  } else {
+    return res.status(404).json({
+      status: "Error",
+      message: "New class not found",
+    });
+  }
+};
+
+const removeStudent = async (req, res) => {
+  const id = req.params.studentId;
+  const removedStudent = await students.deleteOne({ _id: id });
+  res.status(200).json({
+    status: "Success",
+    removedStudent,
+  });
+};
+
+export {
+  test,
+  addAllStudents,
+  addStudent,
+  studentCount,
+  getStudents,
+  getStudentDetails,
+  changeStatus,
+  changeClass,
+  removeStudent,
+};

@@ -53,14 +53,8 @@ const AddStudent = ({ toggleModal, responce }) => {
       method: "POST",
       encType: "application/json",
     });
-    // console.log("Submitting:", responce);
-    if (responce.error) {
-      toast.error("form error please try again later");
-    }
-    if (responce.success) {
-      toast.success(responce.success);
-      toggleModal();
-    }
+
+    toggleModal();
   };
 
   return (

@@ -80,6 +80,12 @@ const allTeachers = async (req, res) => {
   res.status(200).json(teachers);
 };
 
+const getTeacherDetails = async (req, res) => {
+  const id = req.params.teacherId;
+  const teacherDetail = await Teachers.findById(id);
+  res.status(200).json({ teacherDetail });
+};
+
 export {
   test,
   addTeacher,
@@ -87,5 +93,6 @@ export {
   findByKYC,
   teacherCount,
   allTeachers,
+  getTeacherDetails,
 };
 

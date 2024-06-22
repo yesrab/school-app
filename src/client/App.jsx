@@ -21,6 +21,12 @@ import Students, {
   action as studentAction,
 } from "./pages/Students/Students";
 import { Toaster } from "react-hot-toast";
+import StudentDetails, {
+  loader as sdLoader,
+} from "./pages/Students/studentDetails/StudentDetails.jsx";
+import TeacherDetails, {
+  loader as teacherDetailsLoader,
+} from "./pages/Teachers/TeacherDetails/TeacherDetails.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -37,6 +43,7 @@ const router = createBrowserRouter(
           path='/classes/:classId'
           element={<h1>class details not added yet</h1>}
         />
+
         <Route
           path='/teachers'
           loader={teacherLoader}
@@ -44,10 +51,20 @@ const router = createBrowserRouter(
           element={<Teachers />}
         />
         <Route
+          loader={teacherDetailsLoader}
+          path='/teachers/:teacherId'
+          element={<TeacherDetails />}
+        />
+        <Route
           loader={studentLoader}
           action={studentAction}
           path='/students'
           element={<Students />}
+        />
+        <Route
+          loader={sdLoader}
+          path='/students/:studentId'
+          element={<StudentDetails />}
         />
         <Route path='/analytics' element={<Analytics />} />
       </Route>

@@ -11,12 +11,10 @@ const test = (req, res) => {
 };
 const addAllClasses = async (req, res) => {
   const classArray = req.body;
-  // console.log(classArray);
+
   await Classes.deleteMany({});
   const result = [];
   for (let classesObj of classArray) {
-    // console.log(classesObj);
-
     const data = await Classes.create(classesObj);
     result.push(data);
   }
@@ -73,9 +71,8 @@ const allClasses = async (req, res) => {
 
 const assignTeacher = async (req, res) => {
   const { classId, teacherId } = req.body;
-  console.log(classId, teacherId);
+
   if (req.method === "PATCH") {
-    console.log("patching add teacher");
     const classInfo = await Classes.findById(classId);
     const teacherInfo = await teachers.findById(teacherId);
     const updatedClass = await Classes.findByIdAndUpdate(
@@ -102,7 +99,6 @@ const assignTeacher = async (req, res) => {
     await updatedTeacher.save();
     return res.status(200).json({ updatedClass, updatedTeacher });
   } else if (req.method === "DELETE") {
-    console.log("triggered delete method");
     const updatedClass = await Classes.findByIdAndUpdate(
       classId,
       { $set: { classTeacher: {} } }, // Set classTeacher to an empty object

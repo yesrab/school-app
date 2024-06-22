@@ -3,7 +3,14 @@ import Header from "../../components/header/Header";
 import ModelWrapper from "../../modal/ModalWrapper";
 import AddStudent from "../../components/addStudent/AddStudent";
 import fetchUtils from "../../libs/fetchUtils";
-import { Await, defer, useActionData, useLoaderData } from "react-router-dom";
+import {
+  Await,
+  defer,
+  useActionData,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
+import toast from "react-hot-toast";
 export const loader = async () => {
   const STUDENT_COUNT = "/api/v1/students/studentCount";
   const ALL_STUDENTS = "/api/v1/students/allStudents";
@@ -25,6 +32,11 @@ export const action = async ({ request, params }) => {
     });
   }
   const responce = await fetchUtils(serverRequest);
+  if (responce.error) {
+    toast.error("something went wrong");
+  } else {
+    toast.success("Added student");
+  }
   return responce;
 };
 const Students = () => {
@@ -34,7 +46,7 @@ const Students = () => {
   const toggleModal = () => {
     setOpen((prev) => !prev);
   };
-
+  const navigator = useNavigate();
   return (
     <div className='flex-grow p-2 bg-slate-200'>
       <Header headerName={"students"} />
@@ -91,16 +103,21 @@ const Students = () => {
                   className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
                   Enrollment Status
                 </th>
-                <th
+                {/* <th
                   scope='col'
                   className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
                   Enrolled Class
-                </th>
+                </th> */}
               </tr>
             </thead>
             <tbody className='bg-white divide-y divide-gray-200'>
               {students?.studentData.map((student) => (
-                <tr key={student._id}>
+                <tr
+                  className='hover:bg-slate-100 hover:cursor-pointer'
+                  onClick={() => {
+                    navigator(`${student._id}`);
+                  }}
+                  key={student._id}>
                   <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
                     {student.fullName}
                   </td>
@@ -116,9 +133,9 @@ const Students = () => {
                   <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
                     {student.enrollmentStatus}
                   </td>
-                  <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
+                  {/* <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
                     {student.enrolledClass}
-                  </td>
+                  </td> */}
                 </tr>
               ))}
             </tbody>

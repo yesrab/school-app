@@ -7,13 +7,13 @@ const classSchema = new mongoose.Schema(
       type: String,
       trim: true,
       unique: true,
-      validate: [validateClassName, "Class with the same name already exists"],
+      validate: [
+        function (value) {
+          return this.isNew ? validateClassName(value) : true;
+        },
+        "This class already exists",
+      ],
     },
-    // subject: {
-    //   type: String,
-    //   trim: true,
-    //   required: [true, "please enter name of the subject"],
-    // },
     classDetails: {
       type: {
         standard: {

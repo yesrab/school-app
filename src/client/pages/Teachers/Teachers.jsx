@@ -1,5 +1,11 @@
 import React, { useState, Suspense } from "react";
-import { Await, defer, useActionData, useLoaderData } from "react-router-dom";
+import {
+  Await,
+  defer,
+  useActionData,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
 import ModelWrapper from "../../modal/ModalWrapper";
 import Header from "../../components/header/Header";
 import AddTeacher from "../../components/addTeacher/AddTeacher";
@@ -43,7 +49,7 @@ const Teachers = () => {
   const toggleModal = () => {
     setOpen((prev) => !prev);
   };
-
+  const navigator = useNavigate();
   return (
     <div className='flex-grow p-2 bg-slate-200'>
       <Header headerName={"Teachers"} />
@@ -105,8 +111,13 @@ const Teachers = () => {
             </thead>
             <tbody className='bg-white divide-y divide-gray-200'>
               {teacher.map((t) => (
-                <tr key={t._id}>
-                  <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                <tr
+                  className='hover:bg-gray-100 hover:cursor-pointer'
+                  onClick={() => {
+                    navigator(`${t._id}`);
+                  }}
+                  key={t._id}>
+                  <td className='px-6 py-4  whitespace-nowrap text-sm font-medium text-gray-900'>
                     {t._id}
                   </td>
                   <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
