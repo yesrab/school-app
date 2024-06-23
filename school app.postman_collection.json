@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "011680ee-83a7-4ca0-b13e-5f3a8707e4c2",
+		"name": "HRM software",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32018515"
+	},
+	"item": [
+		{
+			"name": "Server status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"KYC_Details\": {\r\n        \"bankName\": \"union\",\r\n        \"bankAccountNumber\": 2077010654,\r\n        \"bankIFSC\": \"123123ada\",\r\n        \"bankBranch\": \"207 Lakewood Gardens Alley\",\r\n        \"PAN\": \"789FG5678H\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/teachers/test",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"teachers",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "teacher",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/teachers/test",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"teachers",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add teacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"fullName\": \"Yesrab Ali\",\r\n        \"gender\": \"Male\",\r\n        \"DOB\": \"2021-10-21\",\r\n        \"emailId\": \"yesrab@google.com\",\r\n        \"mobileNumber\": \"7013809402\",\r\n        \"homeAddress\": \"28 Spenser Road\",\r\n        \"salary\": 69696,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"union\",\r\n            \"bankAccountNumber\": 2077010654,\r\n            \"bankIFSC\": \"123123ada\",\r\n            \"bankBranch\": \"207 Lakewood Gardens Alley\",\r\n            \"PAN\": \"789FG5678H\"\r\n        },\r\n        \"teacherType\": \"Substitute\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/teachers/addTeacher",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"teachers",
+						"addTeacher"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add all teachers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Ted\",\r\n            \"m_name\": \"Crééz\",\r\n            \"l_name\": \"Roylance\"\r\n        },\r\n        \"gender\": \"Female\",\r\n        \"DOB\": \"2021-10-21\",\r\n        \"emailId\": \"troylance0@wisc.edu\",\r\n        \"mobileNumber\": \"3117026011\",\r\n        \"homeAddress\": \"28 Spenser Road\",\r\n        \"salary\": 89476,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"hdfc\",\r\n            \"bankAccountNumber\": 2077010654,\r\n            \"bankIFSC\": \"123123ada\",\r\n            \"bankBranch\": \"207 Lakewood Gardens Alley\",\r\n            \"PAN\": \"789FG5678H\"\r\n        },\r\n        \"teacherType\": \"Regular\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Janine\",\r\n            \"m_name\": \"Réjane\",\r\n            \"l_name\": \"Holme\"\r\n        },\r\n        \"gender\": \"Female\",\r\n        \"DOB\": \"2024-02-14\",\r\n        \"emailId\": \"jholme1@lycos.com\",\r\n        \"mobileNumber\": \"1935014218\",\r\n        \"homeAddress\": \"9 Goodland Trail\",\r\n        \"salary\": 57760,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"axis\",\r\n            \"bankAccountNumber\": 494212648,\r\n            \"bankIFSC\": \"456456abc\",\r\n            \"bankBranch\": \"441 Emmet Parkway\",\r\n            \"PAN\": \"789FG5678H\"\r\n        },\r\n        \"teacherType\": \"Regular\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Veronike\",\r\n            \"m_name\": \"Lài\",\r\n            \"l_name\": \"Cosely\"\r\n        },\r\n        \"gender\": \"Female\",\r\n        \"DOB\": \"2022-12-19\",\r\n        \"emailId\": \"vcosely2@smugmug.com\",\r\n        \"mobileNumber\": \"4545469455\",\r\n        \"homeAddress\": \"2896 Twin Pines Court\",\r\n        \"salary\": 82801,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"hdfc\",\r\n            \"bankAccountNumber\": 2388927373,\r\n            \"bankIFSC\": \"789789xyz\",\r\n            \"bankBranch\": \"12 La Follette Junction\",\r\n            \"PAN\": \"123AB67890\"\r\n        },\r\n        \"teacherType\": \"Substitute\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Savina\",\r\n            \"l_name\": \"Blaxland\"\r\n        },\r\n        \"gender\": \"Female\",\r\n        \"DOB\": \"2022-04-11\",\r\n        \"emailId\": \"sblaxland3@artisteer.com\",\r\n        \"mobileNumber\": \"9394613994\",\r\n        \"homeAddress\": \"250 Paget Crossing\",\r\n        \"salary\": 26083,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"union\",\r\n            \"bankAccountNumber\": 7869632121,\r\n            \"bankIFSC\": \"456456abc\",\r\n            \"bankBranch\": \"424 Lawn Crossing\",\r\n            \"PAN\": \"789FG5678H\"\r\n        },\r\n        \"teacherType\": \"Other\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Eberhard\",\r\n            \"l_name\": \"Stearley\"\r\n        },\r\n        \"gender\": \"Male\",\r\n        \"DOB\": \"2021-03-21\",\r\n        \"emailId\": \"estearley4@myspace.com\",\r\n        \"mobileNumber\": \"9763998309\",\r\n        \"homeAddress\": \"23684 Maple Drive\",\r\n        \"salary\": 40774,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"union\",\r\n            \"bankAccountNumber\": 1997001662,\r\n            \"bankIFSC\": \"123123ada\",\r\n            \"bankBranch\": \"70 Pepper Wood Park\",\r\n            \"PAN\": \"123AB67890\"\r\n        },\r\n        \"teacherType\": \"Substitute\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Lucky\",\r\n            \"m_name\": \"Andréa\",\r\n            \"l_name\": \"De Bruin\"\r\n        },\r\n        \"gender\": \"Female\",\r\n        \"DOB\": \"2022-06-04\",\r\n        \"emailId\": \"ldebruin5@wp.com\",\r\n        \"mobileNumber\": \"6044118827\",\r\n        \"homeAddress\": \"04811 American Ash Hill\",\r\n        \"salary\": 52371,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"icici\",\r\n            \"bankAccountNumber\": 302090847,\r\n            \"bankIFSC\": \"789789xyz\",\r\n            \"bankBranch\": \"46045 Marcy Crossing\",\r\n            \"PAN\": \"789FG5678H\"\r\n        },\r\n        \"teacherType\": \"Other\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Ravi\",\r\n            \"l_name\": \"Kingsmill\"\r\n        },\r\n        \"gender\": \"Male\",\r\n        \"DOB\": \"2023-01-20\",\r\n        \"emailId\": \"rkingsmill6@samsung.com\",\r\n        \"mobileNumber\": \"4408882743\",\r\n        \"homeAddress\": \"709 Namekagon Plaza\",\r\n        \"salary\": 35164,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"union\",\r\n            \"bankAccountNumber\": 1450649763,\r\n            \"bankIFSC\": \"123123ada\",\r\n            \"bankBranch\": \"0 Roxbury Road\",\r\n            \"PAN\": \"456CD1234E\"\r\n        },\r\n        \"teacherType\": \"Substitute\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Neile\",\r\n            \"m_name\": \"Anaëlle\",\r\n            \"l_name\": \"Nudde\"\r\n        },\r\n        \"gender\": \"Female\",\r\n        \"DOB\": \"2021-11-21\",\r\n        \"emailId\": \"nnudde7@vk.com\",\r\n        \"mobileNumber\": \"5756959400\",\r\n        \"homeAddress\": \"434 Mayer Plaza\",\r\n        \"salary\": 93749,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"hdfc\",\r\n            \"bankAccountNumber\": 7409888316,\r\n            \"bankIFSC\": \"123123ada\",\r\n            \"bankBranch\": \"99770 1st Way\",\r\n            \"PAN\": \"456CD1234E\"\r\n        },\r\n        \"teacherType\": \"Regular\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Daron\",\r\n            \"l_name\": \"Adamson\"\r\n        },\r\n        \"gender\": \"Male\",\r\n        \"DOB\": \"2024-03-18\",\r\n        \"emailId\": \"dadamson2n@yahoo.com\",\r\n        \"mobileNumber\": \"2454177664\",\r\n        \"homeAddress\": \"904 Gateway Place\",\r\n        \"salary\": 65590,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"icici\",\r\n            \"bankAccountNumber\": 1037581788,\r\n            \"bankIFSC\": \"789789xyz\",\r\n            \"bankBranch\": \"18 Shasta Junction\",\r\n            \"PAN\": \"456CD1234E\"\r\n        },\r\n        \"teacherType\": \"Substitute\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Franni\",\r\n            \"l_name\": \"Nutley\"\r\n        },\r\n        \"gender\": \"Female\",\r\n        \"DOB\": \"2021-05-04\",\r\n        \"emailId\": \"fnutley2o@vk.com\",\r\n        \"mobileNumber\": \"6112199863\",\r\n        \"homeAddress\": \"730 Straubel Pass\",\r\n        \"salary\": 38711,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"hdfc\",\r\n            \"bankAccountNumber\": 52384440,\r\n            \"bankIFSC\": \"123123ada\",\r\n            \"bankBranch\": \"52070 Golf Point\",\r\n            \"PAN\": \"123AB67890\"\r\n        },\r\n        \"teacherType\": \"Other\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Petronilla\",\r\n            \"l_name\": \"Farington\"\r\n        },\r\n        \"gender\": \"Female\",\r\n        \"DOB\": \"2023-04-14\",\r\n        \"emailId\": \"pfarington2p@telegraph.co.uk\",\r\n        \"mobileNumber\": \"9717690059\",\r\n        \"homeAddress\": \"1 Anhalt Plaza\",\r\n        \"salary\": 54137,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"sbi\",\r\n            \"bankAccountNumber\": 9646583840,\r\n            \"bankIFSC\": \"789789xyz\",\r\n            \"bankBranch\": \"94 Kim Road\",\r\n            \"PAN\": \"789FG5678H\"\r\n        },\r\n        \"teacherType\": \"Other\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Valenka\",\r\n            \"l_name\": \"Josebury\"\r\n        },\r\n        \"gender\": \"Female\",\r\n        \"DOB\": \"2023-10-10\",\r\n        \"emailId\": \"vjosebury2q@accuweather.com\",\r\n        \"mobileNumber\": \"8285470629\",\r\n        \"homeAddress\": \"24712 Express Park\",\r\n        \"salary\": 13862,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"union\",\r\n            \"bankAccountNumber\": 6510143977,\r\n            \"bankIFSC\": \"123123ada\",\r\n            \"bankBranch\": \"1 Anhalt Alley\",\r\n            \"PAN\": \"789FG5678H\"\r\n        },\r\n        \"teacherType\": \"Other\"\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"f_name\": \"Duky\",\r\n            \"m_name\": \"Ruì\",\r\n            \"l_name\": \"Dobbins\"\r\n        },\r\n        \"gender\": \"Male\",\r\n        \"DOB\": \"2024-02-06\",\r\n        \"emailId\": \"ddobbins2r@xing.com\",\r\n        \"mobileNumber\": \"8751619851\",\r\n        \"homeAddress\": \"09895 Hanover Pass\",\r\n        \"salary\": 30846,\r\n        \"KYC_Details\": {\r\n            \"bankName\": \"axis\",\r\n            \"bankAccountNumber\": 6898260591,\r\n            \"bankIFSC\": \"123123ada\",\r\n            \"bankBranch\": \"760 Cottonwood Crossing\",\r\n            \"PAN\": \"456CD1234E\"\r\n        },\r\n        \"teacherType\": \"Substitute\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/teachers/addAllTeachers",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"teachers",
+						"addAllTeachers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\": \"Yesrab Ali\",\r\n    \"gender\": \"Male\",\r\n    \"DOB\": \"1999-05-15\",\r\n    \"emailId\": \"yesrab@example.com\",\r\n    \"mobileNumber\": \"7013809402\",\r\n    \"homeAddress\": \"123 Main St, City, Country\",\r\n    \"guardians\": [\r\n        {\r\n            \"guardianName\": \"Sadique Ali\",\r\n            \"guardianMobileNumber\": \"9987654321\",\r\n            \"guardianEmailId\": \"sadique@example.com\",\r\n            \"isParent\": true,\r\n            \"guardianHomeAddress\": \"456 Oak St, City, Country\"\r\n        }\r\n    ],\r\n    \"enrollmentStatus\": \"Active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/students/addStudent",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"students",
+						"addStudent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add all class",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"classDetails\": {\r\n            \"standard\": 8,\r\n            \"section\": \"P\"\r\n        },\r\n        \"studentMemberFee\": 2822,\r\n        \"classTeacher\": {\r\n            \"name\": \"Giralda Zannini\",\r\n            \"teacherId\": \"662e2130fc13ae059da24110\"\r\n        },\r\n        \"classCapacity\": 41,\r\n        \"duration\": \"90 min\",\r\n        \"frequency\": \"bi-weekly\",\r\n        \"startDate\": \"2024-12-25T18:46:36Z\",\r\n        \"endDate\": \"2026-02-13T00:08:37Z\"\r\n    },\r\n    {\r\n        \"classDetails\": {\r\n            \"standard\": 2,\r\n            \"section\": \"E\"\r\n        },\r\n        \"studentMemberFee\": 4642,\r\n        \"classTeacher\": {\r\n            \"name\": \"Kelly Rixon\",\r\n            \"teacherId\": \"662e2130fc13ae059da24111\"\r\n        },\r\n        \"classCapacity\": 40,\r\n        \"duration\": \"1 hour\",\r\n        \"frequency\": \"bi-weekly\",\r\n        \"startDate\": \"2024-04-28T15:28:11Z\",\r\n        \"endDate\": \"2025-11-30T19:26:16Z\"\r\n    },\r\n    {\r\n        \"classDetails\": {\r\n            \"standard\": 10,\r\n            \"section\": \"S\"\r\n        },\r\n        \"studentMemberFee\": 783,\r\n        \"classTeacher\": {\r\n            \"name\": \"Walther Tosh\",\r\n            \"teacherId\": \"662e2131fc13ae059da24112\"\r\n        },\r\n        \"classCapacity\": 89,\r\n        \"duration\": \"90 min\",\r\n        \"frequency\": \"weekly\",\r\n        \"startDate\": \"2024-06-03T21:19:51Z\",\r\n        \"endDate\": \"2025-10-01T00:53:37Z\"\r\n    },\r\n    {\r\n        \"classDetails\": {\r\n            \"standard\": 3,\r\n            \"section\": \"N\"\r\n        },\r\n        \"studentMemberFee\": 3738,\r\n        \"classTeacher\": {\r\n            \"name\": \"Adam Baumford\",\r\n            \"teacherId\": \"662e2131fc13ae059da24113\"\r\n        },\r\n        \"classCapacity\": 23,\r\n        \"duration\": \"2 hour\",\r\n        \"frequency\": \"bi-weekly\",\r\n        \"startDate\": \"2025-02-04T17:17:35Z\",\r\n        \"endDate\": \"2025-11-21T03:36:26Z\"\r\n    },\r\n    {\r\n        \"classDetails\": {\r\n            \"standard\": 2,\r\n            \"section\": \"D\"\r\n        },\r\n        \"studentMemberFee\": 4018,\r\n        \"classTeacher\": {\r\n            \"name\": \"Merv Pearch\",\r\n            \"teacherId\": \"662e2131fc13ae059da24114\"\r\n        },\r\n        \"classCapacity\": 66,\r\n        \"duration\": \"1 hour\",\r\n        \"frequency\": \"bi-weekly\",\r\n        \"startDate\": \"2025-01-13T01:36:05Z\",\r\n        \"endDate\": \"2026-02-12T21:12:19Z\"\r\n    },\r\n    {\r\n        \"classDetails\": {\r\n            \"standard\": 11,\r\n            \"section\": \"P\"\r\n        },\r\n        \"studentMemberFee\": 4753,\r\n        \"classTeacher\": {\r\n            \"name\": \"Lek Goodreid\",\r\n            \"teacherId\": \"662e2131fc13ae059da24115\"\r\n        },\r\n        \"classCapacity\": 97,\r\n        \"duration\": \"2 hour\",\r\n        \"frequency\": \"daily\",\r\n        \"startDate\": \"2024-12-11T03:15:10Z\",\r\n        \"endDate\": \"2025-12-06T20:06:52Z\"\r\n    },\r\n    {\r\n        \"classDetails\": {\r\n            \"standard\": 9,\r\n            \"section\": \"Q\"\r\n        },\r\n        \"studentMemberFee\": 3931,\r\n        \"classTeacher\": {\r\n            \"name\": \"Diann Smyth\",\r\n            \"teacherId\": \"662e2131fc13ae059da24116\"\r\n        },\r\n        \"classCapacity\": 31,\r\n        \"duration\": \"1 hour\",\r\n        \"frequency\": \"daily\",\r\n        \"startDate\": \"2024-11-16T16:44:15Z\",\r\n        \"endDate\": \"2025-11-14T04:08:55Z\"\r\n    },\r\n    {\r\n        \"classDetails\": {\r\n            \"standard\": 1,\r\n            \"section\": \"R\"\r\n        },\r\n        \"studentMemberFee\": 3106,\r\n        \"classTeacher\": {\r\n            \"name\": \"Glori Skellen\",\r\n            \"teacherId\": \"662e2131fc13ae059da24117\"\r\n        },\r\n        \"classCapacity\": 62,\r\n        \"duration\": \"2 hour\",\r\n        \"frequency\": \"daily\",\r\n        \"startDate\": \"2024-08-01T19:42:07Z\",\r\n        \"endDate\": \"2025-11-21T19:17:53Z\"\r\n    },\r\n    {\r\n        \"classDetails\": {\r\n            \"standard\": 9,\r\n            \"section\": \"L\"\r\n        },\r\n        \"studentMemberFee\": 3869,\r\n        \"classTeacher\": {\r\n            \"name\": \"Loreen Orlton\",\r\n            \"teacherId\": \"662e2131fc13ae059da24118\"\r\n        },\r\n        \"classCapacity\": 64,\r\n        \"duration\": \"2 hour\",\r\n        \"frequency\": \"weekly\",\r\n        \"startDate\": \"2024-07-27T22:03:46Z\",\r\n        \"endDate\": \"2025-12-22T00:01:49Z\"\r\n    },\r\n    {\r\n        \"classDetails\": {\r\n            \"standard\": 4,\r\n            \"section\": \"P\"\r\n        },\r\n        \"studentMemberFee\": 3579,\r\n        \"classTeacher\": {\r\n            \"name\": \"Burton Barlee\",\r\n            \"teacherId\": \"662e2131fc13ae059da24119\"\r\n        },\r\n        \"classCapacity\": 98,\r\n        \"duration\": \"90 min\",\r\n        \"frequency\": \"weekly\",\r\n        \"startDate\": \"2024-10-25T23:02:38Z\",\r\n        \"endDate\": \"2026-01-05T00:36:17Z\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/class/addAllClasses",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"class",
+						"addAllClasses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add class",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"classDetails\": {\r\n        \"standard\": 10,\r\n        \"section\": \"P\"\r\n    },\r\n    \"studentMemberFee\": 2822,\r\n    \"classCapacity\": 41,\r\n    \"duration\": \"90 min\",\r\n    \"frequency\": \"bi-weekly\",\r\n    \"startDate\": \"2024-12-25T18:46:36Z\",\r\n    \"endDate\": \"2026-02-13T00:08:37Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/class/addClass",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"class",
+						"addClass"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chips data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/analytics/studentStatus",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"analytics",
+						"studentStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "per student detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/teachers/6674665dc43e9b0b7f5d60e8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"teachers",
+						"6674665dc43e9b0b7f5d60e8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
