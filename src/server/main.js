@@ -6,6 +6,8 @@ import "express-async-errors";
 import statusMonitor from "express-status-monitor-plus";
 import connect from "./db/connect.js";
 
+ViteExpress.config({ mode: process.env.NODE_ENV });
+
 //env variables
 const PORT = process.env.PORT || 3000;
 const DB_URI = process.env.DB || "";
